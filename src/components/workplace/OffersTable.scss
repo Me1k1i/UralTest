@@ -1,0 +1,167 @@
+.offers-table {
+  --bs-table-color: var(--color-text-main);
+  --bs-table-bg: var(--color-panel-background);
+  --bs-table-border-color: var(--color-border-default);
+
+  width: 100%;
+  margin: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+  font-size: 13px;
+
+  &__container {
+    position: relative;
+    isolation: isolate;
+    flex: 1;
+    min-height: 0;
+    padding: 0;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border-default) transparent;
+  }
+
+  &__column {
+    &--brand { width: 14%; }
+    &--article { width: 17%; }
+    &--warehouse { width: 18%; }
+    &--price { width: 132px; }
+    &--stock { width: 78px; }
+  }
+
+  > thead {
+    position: static;
+
+    > tr > th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      padding: 8px 12px;
+      border-top: 0;
+      border-bottom: 1px solid var(--color-border-default);
+      background-color: var(--color-page-background);
+      color: var(--color-text-muted);
+      font-size: 11px;
+      font-weight: 500;
+      text-align: left;
+      overflow-wrap: anywhere;
+
+      + th { border-left: 1px solid var(--color-border-default); }
+    }
+  }
+
+  > tbody > tr {
+    > td {
+      padding: 10px 12px;
+      border-top: 0;
+      border-bottom: 1px solid var(--color-border-default);
+      background-color: var(--color-panel-background);
+      box-shadow: none;
+      vertical-align: middle;
+      overflow-wrap: anywhere;
+
+      + td { border-left: 1px solid var(--color-border-default); }
+    }
+
+    &:hover > td:not(.offers-table__empty) { background-color: var(--color-field-background); }
+    &:last-child > td { border-bottom: 0; }
+  }
+
+  &__brand { font-weight: 500; }
+
+  &__article {
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__name > span:first-child {
+    display: block;
+    line-height: 1.5;
+  }
+
+  &__type {
+    display: block;
+    margin-top: 4px;
+    color: var(--color-text-muted);
+    font-size: 10px;
+
+    &--original { color: var(--color-text-main); }
+  }
+
+  &__warehouse {
+    color: var(--color-text-muted);
+    font-size: 12px;
+  }
+
+  &__numeric {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__price {
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  &__price-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+  }
+
+  &__sort-button {
+    width: 24px;
+    min-height: 24px;
+    padding: 2px;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    color: var(--color-text-muted);
+
+    &:hover {
+      background: var(--color-selected-background);
+      color: var(--color-action-primary);
+    }
+
+    &--active { color: var(--color-action-primary); }
+  }
+
+  &__stock {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 6px;
+    border-radius: 6px;
+    background: var(--color-success-background);
+    color: var(--color-success-text);
+    font-size: 11px;
+    white-space: nowrap;
+
+    &--empty {
+      background: var(--color-field-background);
+      color: var(--color-text-muted);
+    }
+  }
+
+  > tbody > tr > td.offers-table__empty {
+    height: 200px;
+    padding: 32px 24px;
+    text-align: center;
+  }
+
+  &__empty-title {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  &__empty-reset { margin-top: 16px; }
+
+  @media (max-width: 1100px) {
+    &__column--price { width: 120px; }
+    &__column--stock { width: 72px; }
+
+    > thead > tr > th,
+    > tbody > tr > td { padding-inline: 10px; }
+  }
+}

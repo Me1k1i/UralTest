@@ -1,0 +1,75 @@
+.filter-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 21;
+  width: 320px;
+  max-width: calc(100vw - 32px);
+  max-height: min(430px, calc(100dvh - 180px));
+  overflow-y: auto;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-panel);
+  background: var(--color-panel-background);
+  box-shadow: var(--popup-shadow);
+
+  &__backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: default;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 14px 6px;
+  }
+
+  &__title {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  &__close {
+    flex: none;
+    width: 28px;
+    min-height: 28px;
+    padding: 4px;
+    background: transparent;
+    color: var(--color-text-muted);
+  }
+
+  &__body {
+    display: grid;
+    gap: 12px;
+    padding: 6px 14px 14px;
+  }
+
+  &__field .form-label {
+    margin-bottom: 5px;
+  }
+
+  &__checkbox {
+    margin: 0;
+    font-size: 13px;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 14px;
+    border-top: 1px solid var(--color-border-soft);
+  }
+
+  &__reset {
+    background: transparent;
+    color: var(--color-text-muted);
+  }
+}

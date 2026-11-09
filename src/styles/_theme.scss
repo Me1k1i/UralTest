@@ -1,0 +1,131 @@
+@use 'settings/palette' as palette;
+@use 'settings/layout' as layout;
+
+:root {
+  color-scheme: light;
+  --color-page-background: #{palette.$page-background};
+  --color-panel-background: #{palette.$panel-background};
+  --color-field-background: #{palette.$field-background};
+  --color-selected-background: #{palette.$selected-background};
+  --color-text-main: #{palette.$text-main};
+  --color-text-muted: #{palette.$text-muted};
+  --color-text-disabled: #{palette.$text-disabled};
+  --color-text-on-primary: #{palette.$text-on-primary};
+  --color-action-primary: #{palette.$action-primary};
+  --color-action-primary-hover: #{palette.$action-primary-hover};
+  --color-action-secondary: #{palette.$action-secondary};
+  --color-action-secondary-hover: #{palette.$action-secondary-hover};
+  --color-border-default: #{palette.$border-default};
+  --color-border-soft: #{palette.$border-soft};
+  --color-success-text: #{palette.$success-text};
+  --color-success-background: #{palette.$success-background};
+  --color-error-text: #{palette.$error-text};
+  --color-error-background: #{palette.$error-background};
+  --focus-ring: #{palette.$focus-ring};
+  --panel-shadow: #{palette.$panel-shadow};
+  --popup-shadow: #{palette.$popup-shadow};
+  --color-overlay-background: #{palette.$overlay-background};
+  --radius-control: #{layout.$radius-control};
+  --radius-panel: #{layout.$radius-panel};
+  --space-small: #{layout.$space-small};
+  --space-medium: #{layout.$space-medium};
+  --space-large: #{layout.$space-large};
+
+  --bs-font-sans-serif: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --bs-body-font-family: var(--bs-font-sans-serif);
+  --bs-body-font-size: #{layout.$text-size-base};
+  --bs-body-color: var(--color-text-main);
+  --bs-body-bg: var(--color-page-background);
+  --bs-border-color: var(--color-border-default);
+  --bs-border-radius: var(--radius-control);
+  --bs-primary: var(--color-action-primary);
+  --bs-link-color: var(--color-action-primary);
+  --bs-link-hover-color: var(--color-action-primary-hover);
+}
+
+.btn {
+  --bs-btn-font-size: #{layout.$text-size-small};
+  --bs-btn-font-weight: 500;
+  --bs-btn-border-radius: var(--radius-control);
+  --bs-btn-color: var(--color-text-main);
+  --bs-btn-bg: var(--color-action-secondary);
+  --bs-btn-border-color: transparent;
+  --bs-btn-hover-color: var(--color-text-main);
+  --bs-btn-hover-bg: var(--color-action-secondary-hover);
+  --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-color: var(--color-text-main);
+  --bs-btn-active-bg: var(--color-action-secondary-hover);
+  --bs-btn-active-border-color: transparent;
+  --bs-btn-focus-box-shadow: 0 0 0 3px var(--focus-ring);
+  min-height: #{layout.$control-height};
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 14px;
+}
+
+.btn-primary {
+  --bs-btn-color: var(--color-text-on-primary);
+  --bs-btn-bg: var(--color-action-primary);
+  --bs-btn-border-color: var(--color-action-primary);
+  --bs-btn-hover-color: var(--color-text-on-primary);
+  --bs-btn-hover-bg: var(--color-action-primary-hover);
+  --bs-btn-hover-border-color: var(--color-action-primary-hover);
+  --bs-btn-active-color: var(--color-text-on-primary);
+  --bs-btn-active-bg: var(--color-action-primary-hover);
+  --bs-btn-active-border-color: var(--color-action-primary-hover);
+  --bs-btn-disabled-bg: var(--color-action-primary);
+  --bs-btn-disabled-border-color: var(--color-action-primary);
+}
+
+.btn-sm {
+  min-height: 32px;
+  padding: 5px 10px;
+  --bs-btn-font-size: 12px;
+}
+
+.form-control.form-control-sm,
+.form-select.form-select-sm {
+  min-height: 32px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 12px;
+}
+
+.form-control,
+.form-select {
+  min-height: #{layout.$control-height};
+  border-color: transparent;
+  border-radius: var(--radius-control);
+  background-color: var(--color-field-background);
+  color: var(--color-text-main);
+  font-size: #{layout.$text-size-small};
+
+  &::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  &:focus {
+    background-color: var(--color-panel-background);
+    border-color: var(--color-action-primary);
+    box-shadow: 0 0 0 3px var(--focus-ring);
+  }
+}
+
+.form-label {
+  font-size: #{layout.$text-size-small};
+  font-weight: 500;
+}
+
+.form-check-input {
+  &:checked {
+    border-color: var(--color-action-primary);
+    background-color: var(--color-action-primary);
+  }
+
+  &:focus {
+    border-color: var(--color-action-primary);
+    box-shadow: 0 0 0 3px var(--focus-ring);
+  }
+}
